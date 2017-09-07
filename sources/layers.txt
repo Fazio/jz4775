@@ -1,4 +1,4 @@
-meta-antminer,https://gitlab.bitmain.com/antminer/A8_firmwares.git,master,HEAD
+meta-antminer,https://github.com/Fazio/jz4775-filesystem.git,master,HEAD
 bitbake,git://github.com/openembedded/bitbake.git,1.24,HEAD
 meta-angstrom,git://github.com/Angstrom-distribution/meta-angstrom,angstrom-v2014.12-yocto1.7,HEAD
 meta-openembedded,git://github.com/openembedded/meta-openembedded.git,dizzy,HEAD
