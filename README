@@ -5,14 +5,23 @@ This is the Angstrom Distribution v2014.12 release.
 
 To configure the scripts and download the build metadata, do:
 
-	$ MACHINE=beagleboard ./oebb.sh config beagleboard
+	$ MACHINE="ci20" ./oebb.sh config ci20
 
-You can change the 'beagleboard' in the commandline above into the machine you are targeting.
+Adding the CI20 machine
+Create the "sources/openembedded-core/meta/conf/machine/ci20.conf" file:
 
-To start a build of the kernel, source the environment file and do:
+cat > sources/openembedded-core/meta/conf/machine/ci20.conf << "EOF"
+#@TYPE: Machine
+#@NAME: CI20
+#@DESCRIPTION: MIPS Creator CI20
 
-	$ . environment-angstrom
-	$ MACHINE=beagleboard bitbake virtual/kernel
+require conf/machine/include/tune-mips32r2.inc
+
+DEFAULTTUNE = "mips32r2el"
+MACHINE_FEATURES = "serial"
+SERIAL_CONSOLES = "115200;ttyS0 115200;ttyS4"
+IMAGE_FSTYPES ?= "tar.bz2"
+EOF
 
 For an example workflow for dealing with kernels please read http://www.slimlogic.co.uk/2011/05/openembeddedangstrom-kernel-workflow/
 
